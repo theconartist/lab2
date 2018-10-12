@@ -10,7 +10,7 @@ public class Lab2 {
     // the thisMany argument is of thatMany
     public float percentageOf(float thisMany, float thatMany) {
         // TODO: implement
-        return 0.0f;
+        return (thisMany / thatMany) * 100;
     }
 
     // this method should calculate the overall module mark
@@ -20,15 +20,16 @@ public class Lab2 {
     // 15, 25, and 60 respectively.
     public float overallModuleMark(float cswk1, float cswk2, float exam) {
         // TODO: implement
-        return 0.0f;
+        return cswk1 * 0.15f + cswk2 * 0.25f + exam * 0.6f;
     }
 
     // this method should calculate the required exam mark needed
     // to achieve a desired overall module mark, given the marks
     // for the first and second coursework.
     public float desiredExamMarkToAchieve(float cswk1, float cswk2, float moduleMark) {
-        // TODO: implement
-        return 0.0f;
+        float moduleMarksSoFar = overallModuleMark(cswk1, cswk2, 0);
+        float moduleMarksNeeded = moduleMark - moduleMarksSoFar;
+        return percentageOf(moduleMarksNeeded, 60);
     }
 
     // this method should calculate the mark that is needed for
@@ -36,7 +37,8 @@ public class Lab2 {
     // first two components as well as the weights of all components and
     // the desired overall mark
     public float markToAchieve(float c1, float w1, float c2, float w2, float overall) {
-        // TODO: implement
-        return 0.0f;
+        float componentMarksSoFar = c1 * (w1 / 100) + c2 * (w2 / 100);
+        float componentMarksNeeded = overall - componentMarksSoFar;
+        return percentageOf(componentMarksNeeded, 100 - w1 - w2);
     }
 }
